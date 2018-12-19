@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Project.Models.Confirmation>
+@{
+    ViewBag.Title = "verify";
+}
+
+<h2>verify</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ftype)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ftype)
+            </td>
+            <td>
+                @Html.ActionLink("Verify", "verify1", new { id = item.ConfirmationId })
+                @if (!item.status.Equals("Verified"))
+                {
+                    @Html.ActionLink("Reject", "reject1", new { id = item.ConfirmationId })
+                }
+                @{ 
+                    string s = @"/confirmation_certificate/" +item.employee.Name + @"/" + item.ftype + @"/" + item.fname;
+                }
+                <a href=@s>View</a>
+            </td>
+        </tr>
+     }
+
+</table>

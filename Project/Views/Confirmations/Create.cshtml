@@ -1,0 +1,61 @@
+﻿@model Project.Models.Confirmation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Confirmations", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Confirmation</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeeId, "EmployeeId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("EmployeeId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ftype, "FileType", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.ftype, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ftype, "", new { @class = "text-danger" })*@
+            @Html.DropDownListFor(model => model.ftype,new List<SelectListItem>{
+       new SelectListItem{Text="Training", Value="Training"},
+       new SelectListItem{Text="Educational", Value="Educational"},
+       new SelectListItem{Text="Workshop", Value="WorkShop"}
+   }, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="col-md-10">
+        <h4 style="color:red;">@ViewBag.error</h4>
+    </div>
+    <div class="col-md-10">
+        @Html.TextBox("file", "", new { type = "file" })<br />
+        <div class="col-md-10">
+            <h4 style="color:red;">@ViewBag.Message</h4>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,42 @@
+﻿@model Project.Models.Auth
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Auth</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auth_Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auth_Role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AuthId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

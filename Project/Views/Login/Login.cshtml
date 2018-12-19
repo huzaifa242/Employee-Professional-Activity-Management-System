@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<form id="myForm" action="/Login/Login" method="Post">
+
+    UserName:<input type="text" name="uname" /><br/>
+    Password:<input type="password" name="password" /><br />
+    <button type="submit">Submit</button>
+</form>
+<br/>
+@Html.RouteLink("new user",new { action="Create" ,Controller ="Employees"})
+<div class="col-md-10">
+    <h4 style="color:red;">@ViewBag.login</h4>
+</div>

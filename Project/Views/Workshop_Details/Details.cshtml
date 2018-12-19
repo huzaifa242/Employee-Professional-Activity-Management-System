@@ -1,0 +1,66 @@
+﻿@model Project.Models.Workshop_Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Workshop_Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Begin_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Begin_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audience_Count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audience_Count)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Workshop_DetailsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
